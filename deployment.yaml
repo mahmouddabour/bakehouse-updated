@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: dev
+  namespace: test
   name: nginx5
   labels:
     app: MyApp2
@@ -23,7 +23,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: dev
+  namespace: test
   name: my-service3
   labels:
     app: MyApp2
