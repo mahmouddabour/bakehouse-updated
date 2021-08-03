@@ -18,7 +18,7 @@ pipeline {
                 sh 'docker build . -t mahmouddabour/jenkinstask:yallabena'
                 sh 'docker push mahmouddabour/jenkinstask:yallabena'
                 }
-                else if (params.BRANCH == 'prod') {
+                else (params.BRANCH == 'prod') {
                     sh 'git checkout prod'
                     sh 'sudo cp -R .kube /var/lib/jenkins'
                     sh 'sudo chmod 777 /var/lib/jenkins/.kube/config'
@@ -26,7 +26,7 @@ pipeline {
                  sh 'kubectl apply -f deployment.yaml'
                 
                 }
-                else {sh 'docker login -u mahmouddabour -p ${DockerPassword}'s}
+               
             }
         }
         //  stage('docker push local image') {
