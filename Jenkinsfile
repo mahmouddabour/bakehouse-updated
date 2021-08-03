@@ -8,14 +8,14 @@ pipeline {
         }
         stage('docker build local image') {
             steps {
-                sh 'docker build .'
+                sh 'docker build . -t mahmouddabour/jenkinstask:yallabena'
             }
         }
-        stage('docker tag local image') {
-            steps {
-                sh 'docker tag mahmouddabour/jenkinstask:yallabena'
-            }
-        }
+        // stage('docker tag local image') {
+        //     steps {
+        //         sh 'docker tag mahmouddabour/jenkinstask:yallabena'
+        //     }
+        // }
          stage('docker push local image') {
             steps {
                 sh 'docker push mahmouddabour/jenkinstask:yallabena'
