@@ -16,7 +16,7 @@ pipeline {
                  script{
                     if { params.BRANCH == 'release' } {
                             sh 'docker build . -t mahmouddabour/jenkinstask:yallabena'
-                            sh 'docker push mahmouddabour/jenkinstask:yallabena'}
+                            sh 'docker push mahmouddabour/jenkinstask:yallabena' }
                    
                  }
             }
