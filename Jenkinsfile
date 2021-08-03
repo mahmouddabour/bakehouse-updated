@@ -11,7 +11,7 @@ pipeline {
                 sh 'docker build .'
             }
         }
-        stage('docker push local image') {
+        stage('docker tag local image') {
             steps {
                 sh 'docker -tag mahmouddabour/jenkinstask:yallabena'
             }
