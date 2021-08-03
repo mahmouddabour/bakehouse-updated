@@ -26,12 +26,13 @@ pipeline {
                  sh 'kubectl apply -f deployment.yaml'
                 
                 }
+                else {sh 'docker login -u mahmouddabour -p ${DockerPassword}'s}
             }
         }
-         stage('docker push local image') {
-            steps {
-                sh 'docker push mahmouddabour/jenkinstask:yallabena'
-            }
-        }
+        //  stage('docker push local image') {
+        //     steps {
+        //         sh 'docker push mahmouddabour/jenkinstask:yallabena'
+        //     }
+        // }
     }
 }
