@@ -13,7 +13,7 @@ pipeline {
         }
         stage('docker tag local image') {
             steps {
-                sh 'docker -tag mahmouddabour/jenkinstask:yallabena'
+                sh 'docker tag mahmouddabour/jenkinstask:yallabena'
             }
         }
          stage('docker push local image') {
