@@ -14,11 +14,11 @@ pipeline {
         stage('docker build local image') {
             steps {
                 script{
-                if (params.BRANCH == 'release')
+                if {params.BRANCH == 'release'}
                 sh 'docker build . -t mahmouddabour/jenkinstask:yallabena'
                 sh 'docker push mahmouddabour/jenkinstask:yallabena'
                 }
-                else (params.BRANCH == 'prod') {
+                else {params.BRANCH == 'prod' } {
                     sh 'git checkout prod'
                     sh 'sudo cp -R .kube /var/lib/jenkins'
                     sh 'sudo chmod 777 /var/lib/jenkins/.kube/config'
