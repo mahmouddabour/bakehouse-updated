@@ -1,9 +1,9 @@
-pipeline{
+pipeline {
     agent any
     stages {
-        stage('test') {
+        stage('build') {
             steps {
-                sh "docker images"
+                sh 'mvn --version'
             }
         }
     }
