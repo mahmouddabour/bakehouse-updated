@@ -6,9 +6,14 @@ pipeline {
                 sh 'docker login -u mahmouddabour -p ${DockerPassword}'
             }
         }
-        stage('list docker images') {
+        stage('docker build local image') {
             steps {
-                sh 'docker images'
+                sh 'docker build . -tag mahmouddabour/jenkinstask:yallabena'
+            }
+        }
+        stage('docker push local image') {
+            steps {
+                sh 'docker push mahmouddabour/jenkinstask:yallabena'
             }
         }
     }
