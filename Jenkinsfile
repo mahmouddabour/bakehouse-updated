@@ -1,9 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('login') {
             steps {
-                sh 'sudo docker images'
+                sh 'docker login -u mahmouddabour -p ${DockerPassword}'
+            }
+        }
+        stage('list docker images') {
+            steps {
+                sh 'docker images'
             }
         }
     }
