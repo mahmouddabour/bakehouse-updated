@@ -24,7 +24,7 @@ pipeline {
                     sh 'sudo chmod 777 /var/lib/jenkins/.kube/config'
                 sh 'docker pull mahmouddabour/jenkinstask:yallabena'
                  sh 'kubectl apply -f deployment.yaml'
-                
+                }
                 }
                
             }
