@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    parameters {
+        choice(name: 'BRANCH', choices: ['dev', 'test', 'release'])
+    }
+
     stages {
         stage('login') {
             steps {
