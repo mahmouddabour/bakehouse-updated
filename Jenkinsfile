@@ -13,12 +13,12 @@ pipeline {
 
         stage('docker Pull to local image') {
             steps {
-                 script{
-                    // if { params.BRANCH == 'release' } {
-                    //         sh 'docker build . -t mahmouddabour/jenkinstask:yallabena'
-                    //         sh 'docker push mahmouddabour/jenkinstask:yallabena' }
+                //  script {
+                    if { params.BRANCH == 'release' } {
+                            sh 'docker build . -t mahmouddabour/jenkinstask:yallabena'
+                            sh 'docker push mahmouddabour/jenkinstask:yallabena' }
                    
-                 }
+                //  }
             }
         }
 
