@@ -21,19 +21,13 @@ sh "git checkout ${params.BRANCH}"
                  script {
                     if  (params.BRANCH == 'release') 
                             {
-                          
                                 sh 'docker build . -t mahmouddabour/jenkinstask:yallabena'
                                 sh 'docker push mahmouddabour/jenkinstask:yallabena'
-                                
-                            
-                            
                              }
                      else if  (params.BRANCH == 'prod') 
                             {
                             sh "git checkout ${params.BRANCH}"
                             sh 'docker pull mahmouddabour/jenkinstask:yallabena'
-                            // sh 'cp -R ~/.kube 0/var/lib/jenkins'
-                            // sh 'chmod 777 /var/lib/jenkins/.kube/config'
                             sh 'kubectl apply -f deployment.yaml'
                              }
                      else if  (params.BRANCH == 'dev') 
