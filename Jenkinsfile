@@ -8,8 +8,8 @@ pipeline {
         stage('docker login') {
           
              steps {
-sh "git checkout ${params.BRANCH}"
-                        withCredentials([usernamePassword(credentialsId: 'password', passwordVariable: 'password', usernameVariable: 'mahmouddabour')]) {
+                    sh "git checkout ${params.BRANCH}"
+                            withCredentials([usernamePassword(credentialsId: 'password', passwordVariable: 'password', usernameVariable: 'mahmouddabour')]) {
                                  sh "docker login -u mahmouddabour -p ${password}"
                                 }
                    
