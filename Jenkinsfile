@@ -34,16 +34,12 @@ sh "git checkout ${params.BRANCH}"
                             {
                             sh "git checkout ${params.BRANCH}"
                             sh 'docker pull mahmouddabour/jenkinstask:yallabena'
-                            // sh 'cp -R ~/.kube /var/lib/jenkins'
-                            // sh 'chmod 777 /var/lib/jenkins/.kube/config'
                             sh 'kubectl apply -f deployment.yaml'
                              }
                      else (params.BRANCH == 'test') 
                             {
                             sh "git checkout ${params.BRANCH}"
                             sh 'docker pull mahmouddabour/jenkinstask:yallabena'
-                            // sh 'cp -R ~/.kube /var/lib/jenkins'
-                            // sh 'chmod 777 /var/lib/jenkins/.kube/config'
                             sh 'kubectl apply -f deployment.yaml'
                              }
                    
