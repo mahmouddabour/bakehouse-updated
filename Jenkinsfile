@@ -16,6 +16,7 @@ pipeline {
                  script {
                     if  (params.BRANCH == 'release') 
                             {
+                             sh "git checkout ${params.BRANCH}"
                             sh 'docker build bakehouse-updated/Dockerfile -t mahmouddabour/jenkinstask:yallabena'
                             sh 'docker push mahmouddabour/jenkinstask:yallabena'
                             
