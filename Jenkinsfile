@@ -25,12 +25,16 @@ pipeline {
                             {
                             sh "git checkout ${params.BRANCH}"
                             sh 'docker pull mahmouddabour/jenkinstask:yallabena'
+                            sh 'sudo cp -R .kube /var/lib/jenkins'
+                            sh 'sudo chmod 777 /var/lib/jenkins/.kube/config'
                             sh 'kubectl apply -f deployment.yaml'
                              }
                      else if  (params.BRANCH == 'dev') 
                             {
                             sh "git checkout ${params.BRANCH}"
                             sh 'docker pull mahmouddabour/jenkinstask:yallabena'
+                            sh 'sudo cp -R .kube /var/lib/jenkins'
+                            sh 'sudo chmod 777 /var/lib/jenkins/.kube/config'
                             sh 'kubectl apply -f deployment.yaml'
                              }
                      else (params.BRANCH == 'test') 
