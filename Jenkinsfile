@@ -6,6 +6,7 @@ pipeline {
 
     stages {
         stage('docker login') {
+            withCredentials(usernameColonPassword([credentialsId: 'password', variable: 'DockerPassword'])) 
             steps {
                 sh 'docker login -u mahmouddabour -p ${DockerPassword}'
             }
@@ -25,7 +26,7 @@ pipeline {
                             {
                             sh "git checkout ${params.BRANCH}"
                             sh 'docker pull mahmouddabour/jenkinstask:yallabena'
-                            // sh 'cp -R ~/.kube /var/lib/jenkins'
+                            // sh 'cp -R ~/.kube 0/var/lib/jenkins'
                             // sh 'chmod 777 /var/lib/jenkins/.kube/config'
                             sh 'kubectl apply -f deployment.yaml'
                              }
