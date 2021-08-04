@@ -8,11 +8,9 @@ pipeline {
         stage('docker login') {
           
              steps {
-            //      withCredentials([string(credentialsId: 'password', variable: 'DockerPassword2')]) {
-            //                sh "docker login -u mahmouddabour -p ${DockerPassword2}"
-            //             }
+sh "git checkout ${params.BRANCH}"
                         withCredentials([usernamePassword(credentialsId: 'password', passwordVariable: 'password', usernameVariable: 'mahmouddabour')]) {
-      sh "docker login -u mahmouddabour -p ${password}"
+                                 sh "docker login -u mahmouddabour -p ${password}"
                                 }
                    
             }
@@ -23,9 +21,11 @@ pipeline {
                  script {
                     if  (params.BRANCH == 'release') 
                             {
-                             sh "git checkout ${params.BRANCH}"
-                            sh 'docker build . -t mahmouddabour/jenkinstask:yallabena'
-                            sh 'docker push mahmouddabour/jenkinstask:yallabena'
+                          
+                                sh 'docker build . -t mahmouddabour/jenkinstask:yallabena'
+                                sh 'docker push mahmouddabour/jenkinstask:yallabena'
+                                
+                            
                             
                              }
                      else if  (params.BRANCH == 'prod') 
