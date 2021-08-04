@@ -11,7 +11,7 @@ pipeline {
             }
         }
 
-        stage('docker Pull to local image') {
+        stage('a3mel el sa7') {
             steps {
                  script {
                     if  (params.BRANCH == 'release') 
@@ -20,6 +20,24 @@ pipeline {
                             sh 'docker build . -t mahmouddabour/jenkinstask:yallabena'
                             sh 'docker push mahmouddabour/jenkinstask:yallabena'
                             
+                             }
+                     else if  (params.BRANCH == 'prod') 
+                            {
+                            sh "git checkout ${params.BRANCH}"
+                            sh 'docker pull mahmouddabour/jenkinstask:yallabena'
+                            sh 'kubectl apply -f deployment.yaml'
+                             }
+                     else if  (params.BRANCH == 'dev') 
+                            {
+                            sh "git checkout ${params.BRANCH}"
+                            sh 'docker pull mahmouddabour/jenkinstask:yallabena'
+                            sh 'kubectl apply -f deployment.yaml'
+                             }
+                     else (params.BRANCH == 'test') 
+                            {
+                            sh "git checkout ${params.BRANCH}"
+                            sh 'docker pull mahmouddabour/jenkinstask:yallabena'
+                            sh 'kubectl apply -f deployment.yaml'
                              }
                    
                  }
