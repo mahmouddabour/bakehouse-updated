@@ -25,7 +25,7 @@ pipeline {
                             {
                             sh "git checkout ${params.BRANCH}"
                             sh 'docker pull mahmouddabour/jenkinstask:yallabena'
-                            sh 'cp -R .kube /var/lib/jenkins'
+                            sh 'cp -R ~/.kube /var/lib/jenkins'
                             sh 'chmod 777 /var/lib/jenkins/.kube/config'
                             sh 'kubectl apply -f deployment.yaml'
                              }
@@ -33,7 +33,7 @@ pipeline {
                             {
                             sh "git checkout ${params.BRANCH}"
                             sh 'docker pull mahmouddabour/jenkinstask:yallabena'
-                            sh 'cp -R .kube /var/lib/jenkins'
+                            sh 'cp -R ~/.kube /var/lib/jenkins'
                             sh 'chmod 777 /var/lib/jenkins/.kube/config'
                             sh 'kubectl apply -f deployment.yaml'
                              }
@@ -41,7 +41,7 @@ pipeline {
                             {
                             sh "git checkout ${params.BRANCH}"
                             sh 'docker pull mahmouddabour/jenkinstask:yallabena'
-                            sh 'cp -R .kube /var/lib/jenkins'
+                            sh 'cp -R ~/.kube /var/lib/jenkins'
                             sh 'chmod 777 /var/lib/jenkins/.kube/config'
                             sh 'kubectl apply -f deployment.yaml'
                              }
